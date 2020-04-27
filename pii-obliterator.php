@@ -5,7 +5,7 @@
  * Description: Small utility to obscure all names, phone numbers, addresses, email addresses in the database. This is only intended for local development databased. Do not use this on live databases. Highly destructive.
  * Version:  0.1.0
  * Author URI: https://github.com/DiscipleTools
- * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-name-obliterator
+ * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-pii-obliterator
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
  * Tested up to: 5.3
@@ -384,7 +384,7 @@ class PII_Obliterator {
                 $alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
                 foreach ( $results as $row ) {
                     $hashFirst = substr(strtolower(preg_replace('/[0-9_\/]+/','',base64_encode(hash('sha256', $row['meta_id'])))),0,rand(4,7));
-                    $name = $alphabet[rand(0,25)] . $hashFirst . '@local.email.com' ;
+                    $name = strtolower( $alphabet[rand(0,25)] ) . $hashFirst . '@local.email.com' ;
                     $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->postmeta SET meta_value = %s WHERE meta_id = %d; ", $name, $row['meta_id'] ) );
                 }
                 ?>
@@ -409,9 +409,6 @@ class PII_Obliterator {
                 <tr>
                     <td>Contact Emails Obliterated</td>
                 </tr>
-                <tr>
-                    <td>Finished!</td>
-                </tr>
                 <script type="text/javascript">
                     <!--
                     function nextpage() {
@@ -426,11 +423,8 @@ class PII_Obliterator {
             /* Delete Activity */
             if ( isset( $_GET['obliterate'] ) && $_GET['step'] === '8' && isset( $_GET['nonce']) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['nonce'] ) ), 'obliterate'.get_current_user_id() ) ) {
                 global $wpdb;
-                $results = $wpdb->get_results("DELETE FROM $wpdb->dt_activity_log WHERE object_type = 'contacts' AND action = 'field_update' AND ( object_subtype LIKE 'contact%' OR object_subtype = 'assigned_to'); ", ARRAY_A );
-                foreach ( $results as $row ) {
-                    $address = "Fake Address, City, State, Zip";
-                    $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->postmeta SET meta_value = %s WHERE meta_id = %d; ", $address, $row['meta_id'] ) );
-                }
+                $results = $wpdb->query("DELETE FROM $wpdb->dt_activity_log WHERE object_type = 'contacts' AND action = 'field_update' AND ( object_subtype LIKE 'contact%' OR object_subtype = 'assigned_to'); ");
+                $results = $wpdb->query("DELETE FROM $wpdb->comments WHERE comment_content LIKE '%@%';");
                 ?>
                 <tr>
                     <td>Contacts Obliterated</td>
@@ -454,12 +448,11 @@ class PII_Obliterator {
                     <td>Contact Emails Obliterated</td>
                 </tr>
                 <tr>
-                    <td>Activity Obliterated</td>
+                    <td>Activity & Notifications Obliterated</td>
                 </tr>
                 <tr>
                     <td>Finished!</td>
                 </tr>
-
                 <?php
             }
             ?>
