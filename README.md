@@ -1,5 +1,13 @@
-# Disciple Tools Extension - PII Obliterator
-This plugin is for developers who are handling security sensitive systems locally. This Personally Identifiable Information Obliterator
-removes or rewrites all PII details visible throughout the system.
+# DT Utility - PII Obliterator
+This plugin is for developers only. It rewrites all personally identifiable information in a database. The primary use case is for developers who 
+are working with local versions of lives systems that have vulnerable or security sensitive records. 
 
+The obliterator rewrites contact names, group names, user names, and all phone numbers, emails, addresses, and pii
+content inside comments and notes, as well as the activity log table and comments table. 
+
+-----
+
+![plugin list image](plugin-list.png)
+
+![pluign screen](page.png)
 
