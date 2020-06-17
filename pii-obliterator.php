@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Disciple.Tools Extension - PII Obliterator
+ * Plugin Name: Disciple.Tools - PII Obliterator
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-pii-obliterator
  * Description: Small utility to obscure all names, phone numbers, addresses, email addresses in the database. This is only intended for local development databased. Do not use this on live databases. Highly destructive.
  * Version:  0.1.0
@@ -145,7 +145,11 @@ class PII_Obliterator {
         <table class="widefat striped">
             <thead>
             <tr>
-                <th><a class="button" href="<?php echo esc_url( trailingslashit( admin_url() ) ) ?>admin.php?page=pii_obliterator&obliterate=true">Obliterate Contact Names</a><br></th>
+                <th><p style="max-width:450px">This process obliterates all personally identifiable information in this system. It is completely irreversible. Ths action was designed to help developers
+                    who are working on their local machines with security sensitive databases, so that they can obliterate the pii sensitive info, but continue to develop
+                        on the system. If this is not what you are doing, please consider stopping now. :)</p>
+                    <p><a class="button" href="<?php echo esc_url( trailingslashit( admin_url() ) ) ?>admin.php?page=pii_obliterator&obliterate=true">Obliterate Away!</a></p>
+                </th>
             </tr>
             </thead>
             <tbody>
