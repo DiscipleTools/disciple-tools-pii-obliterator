@@ -1,5 +1,7 @@
-# DT Utility - PII Obliterator
-This plugin is for developers only. It rewrites all personally identifiable information in a database. The primary use case is for developers who 
+# Disciple Tools - PII Obliterator
+Warning: Highly destructive plugin! This plugin is for developers only. 
+
+It rewrites all personally identifiable information in a database. The primary use case is for developers who 
 are working with local versions of lives systems that have vulnerable or security sensitive records. 
 
 The obliterator rewrites contact names, group names, user names, and all phone numbers, emails, addresses, and pii
