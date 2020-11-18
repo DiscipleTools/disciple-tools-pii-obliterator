@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: DT Utility - PII Obliterator
+ * Plugin Name: Disciple Tools - PII Obliterator
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-pii-obliterator
  * Description: Small utility to obscure all names, phone numbers, addresses, email addresses in the database. This is only intended for local development databased. Do not use this on live databases. Highly destructive.
- * Version:  0.1.0
+ * Version:  0.2
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-pii-obliterator
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
- * Tested up to: 5.3
+ * Tested up to: 5.5
  *
  * @package Disciple_Tools
  * @link    https://github.com/DiscipleTools
@@ -19,6 +19,11 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
 
 add_action( 'after_setup_theme', function (){
+    // must be in admin area
+    if ( ! is_admin() ) {
+        return false;
+    }
+
     $required_dt_theme_version = '0.28.0';
     $wp_theme = wp_get_theme();
     $version = $wp_theme->version;
@@ -48,7 +53,7 @@ add_action( 'after_setup_theme', function (){
      * Don't load the plugin on every rest request. Only those with the 'sample' namespace
      */
     $is_rest = dt_is_rest();
-    if ( !$is_rest || strpos( dt_get_url_path(), 'sample' ) !== false ){
+    if ( !$is_rest ){
         return PII_Obliterator::instance();
     }
     return false;
@@ -81,7 +86,21 @@ class PII_Obliterator {
 
         if ( is_admin() ) {
             add_action( "admin_menu", [ $this, "register_menu" ] );
+
+            // Check for plugin updates
+            if ( ! class_exists( 'Puc_v4_Factory' ) ) {
+                require( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' );
+            }
+            $hosted_json = "https://disciple.tools/wp-content/themes/disciple-tools-public-site/version-control.php?id=747ad1db126a954a4c23ad79aa71eef66768ece8f664d810921017c812f5acaf"; // @todo change this url
+            Puc_v4_Factory::buildUpdateChecker(
+            $hosted_json,
+            __FILE__,
+            'disciple-tools-pii-obliterator'
+            );
+
         }
+
+
     } // End __construct()
 
 
