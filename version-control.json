@@ -1,0 +1,29 @@
+{
+  "name": "Disciple Tools - PII Obliterator",
+  "version": "0.2",
+  "last_updated": "2021-01",
+  "author": "Disciple Tools",
+  "author_homepage": "https://disciple.tools",
+  "git_owner": "DiscipleTools",
+  "git_repo": "disciple-tools-pii-obliterator",
+  "download_url": "https://github.com/DiscipleTools/disciple-tools-pii-obliterator/releases/latest/download/disciple-tools-pii-obliterator.zip",
+  "homepage": "https://github.com/DiscipleTools/disciple-tools-pii-obliterator",
+  "issues_url": "https://github.com/DiscipleTools/disciple-tools-pii-obliterator/issues",
+  "projects_url": "https://github.com/DiscipleTools/disciple-tools-pii-obliterator/projects",
+  "discussions_url": "https://github.com/DiscipleTools/disciple-tools-pii-obliterator/discussions",
+  "wiki_url": "https://github.com/DiscipleTools/disciple-tools-pii-obliterator/wiki",
+  "license_url": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/LICENSE",
+  "readme_url": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/README.md",
+  "requires": "4.7",
+  "tested": "5.6",
+  "upgrade_notice": "Here's why you should upgrade...",
+  "banners": {
+    "low": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/images/dt-placeholder-772x250.jpg",
+    "high": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/images/dt-placeholder-1544x500.jpg"
+  },
+  "sections": {
+    "description": "Disciple Tools - PII Obliterator",
+    "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
+    "changelog": ""
+  }
+}
