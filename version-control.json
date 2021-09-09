@@ -21,6 +21,7 @@
     "low": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/images/dt-placeholder-772x250.jpg",
     "high": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/images/dt-placeholder-1544x500.jpg"
   },
+  "icon": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/pii-obliterator-icon.png",
   "sections": {
     "description": "Disciple Tools - PII Obliterator",
     "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
