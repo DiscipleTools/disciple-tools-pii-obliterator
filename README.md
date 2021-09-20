@@ -11,7 +11,7 @@ content inside comments and notes, as well as the activity log table and comment
 
 -----
 
-![plugin list image](plugin-list.png)
+![plugin list image](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/plugin-list.png)
 
-![pluign screen](page.png)
+![pluign screen](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/page.png)
 
