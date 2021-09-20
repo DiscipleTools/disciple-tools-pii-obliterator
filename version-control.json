@@ -1,8 +1,8 @@
 {
-  "name": "Disciple Tools - PII Obliterator",
+  "name": "Disciple.Tools - PII Obliterator",
   "version": "0.2",
   "last_updated": "2021-01",
-  "author": "Disciple Tools",
+  "author": "Disciple.Tools",
   "author_homepage": "https://disciple.tools",
   "git_owner": "DiscipleTools",
   "git_repo": "disciple-tools-pii-obliterator",
@@ -23,7 +23,7 @@
   },
   "icon": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/pii-obliterator-icon.png",
   "sections": {
-    "description": "Disciple Tools - PII Obliterator",
+    "description": "Disciple.Tools - PII Obliterator",
     "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
     "changelog": ""
   }
