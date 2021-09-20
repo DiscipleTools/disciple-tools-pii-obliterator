@@ -1,3 +1,5 @@
+
+![PII Obliterator](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/pii-obliterator-banner.png)
 # Disciple Tools - PII Obliterator
 Warning: Highly destructive plugin! This plugin is for developers only. 
 
