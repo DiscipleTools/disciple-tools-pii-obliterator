@@ -1,6 +1,6 @@
 
 ![PII Obliterator](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/pii-obliterator-banner.png)
-# Disciple Tools - PII Obliterator
+# Disciple.Tools - PII Obliterator
 Warning: Highly destructive plugin! This plugin is for developers only. 
 
 It rewrites all personally identifiable information in a database. The primary use case is for developers who 
