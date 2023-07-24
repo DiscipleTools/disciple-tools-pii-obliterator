@@ -19,6 +19,7 @@
 if ( !defined( 'ABSPATH' ) ){
     exit;
 } // Exit if accessed directly
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 add_action( 'after_setup_theme', function (){
     // must be in admin area
@@ -93,16 +94,17 @@ class PII_Obliterator{
             add_action( "admin_menu", [ $this, "register_menu" ] );
 
             // Check for plugin updates
-            if ( !class_exists( 'Puc_v4_Factory' ) ){
+            if ( !class_exists( 'PucFactory' ) ){
                 require( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' );
             }
             $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/version-control.json";
-            Puc_v4_Factory::buildUpdateChecker(
-                $hosted_json,
-                __FILE__,
-                'disciple-tools-pii-obliterator'
-            );
-
+            if ( class_exists( 'PucFactory' ) ){
+                PucFactory::buildUpdateChecker(
+                    $hosted_json,
+                    __FILE__,
+                    'disciple-tools-pii-obliterator'
+                );
+            }
         }
 
 
