@@ -3,7 +3,7 @@
  *Plugin Name: Disciple.Tools - PII Obliterator
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-pii-obliterator
  * Description: Small utility to obscure all names, phone numbers, addresses, email addresses in the database. This is only intended for local development databased. Do not use this on live databases. Highly destructive.
- * Version:  0.3.3
+ * Version:  0.3.4
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-pii-obliterator
  * Requires at least: 4.7.0
@@ -94,11 +94,11 @@ class PII_Obliterator{
             add_action( "admin_menu", [ $this, "register_menu" ] );
 
             // Check for plugin updates
-            if ( !class_exists( 'PucFactory' ) ){
+            if ( !class_exists( '\YahnisElsts\PluginUpdateChecker\v5\PucFactory' ) ){
                 require( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' );
             }
             $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-pii-obliterator/master/version-control.json";
-            if ( class_exists( 'PucFactory' ) ){
+            if ( class_exists( '\YahnisElsts\PluginUpdateChecker\v5\PucFactory' ) ){
                 PucFactory::buildUpdateChecker(
                     $hosted_json,
                     __FILE__,
